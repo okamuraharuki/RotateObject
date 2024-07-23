@@ -11,13 +11,14 @@
 /[Uu]ser[Ss]ettings/
 
 #add
-/Resourses/
 
-/Plugins/
+/[Aa]ssets/Resources/
 
-/Sprites/
+/[Aa]ssets/Plugins/
 
-/Fonts/
+/[Aa]ssets/Sprites/
+
+/[Aa]ssets/Fonts/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
