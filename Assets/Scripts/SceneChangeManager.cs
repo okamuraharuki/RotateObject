@@ -1,16 +1,16 @@
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class SceneSwitcher : MonoBehaviour
+public class SceneChangeManager : MonoBehaviour
 {
-    static SceneSwitcher _instance;
-    public static SceneSwitcher Instance => _instance;
+    static SceneChangeManager _instance;
+    public static SceneChangeManager Instance => _instance;
     [SerializeField] Ease _easeSceneChange;
 
     void Awake()
     {
+        //ƒVƒ“ƒOƒ‹ƒgƒ“
         if (_instance != null)
         {
             Destroy(gameObject);

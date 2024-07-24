@@ -12,7 +12,8 @@ public class FadeManager : MonoBehaviour
     [SerializeField] Ease _defaultDotweenEase = Ease.Linear;
     private void Awake()
     {
-        if(_instance != null)
+        //シングルトン
+        if (_instance != null)
         {
             Destroy(gameObject);
         }
@@ -22,44 +23,22 @@ public class FadeManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
-    private void Start()
-    {
-        ImageInitialize();
-    }
-    void ImageInitialize()
-    {
-        if (!_fadeImage)
-        {
-            try
-            {
-                _fadeImage = GameObject.FindGameObjectWithTag("FadeImage").GetComponent<Image>();
-            }
-            catch
-            {
-                Debug.Log("not aquipped fadeImage\ninstantiate fadeImage");
-                GameObject fadeObj = new GameObject();
-                fadeObj.name = "FadeImage";
-                fadeObj.tag = "FadeImage";
-                _fadeImage = fadeObj.AddComponent<Image>();
-                _fadeImage.rectTransform.sizeDelta = new Vector3(Screen.width, Screen.height);
-                _fadeImage.color = Color.black;
-                _fadeImage.gameObject.SetActive(false);
-            }
-        }
-    }
+    /// <summary>
+    /// フェードをする機能
+    /// </summary>
+    /// <param name="ease">フェードする変化量　引数なしの場合設定されたデフォルトが呼ばれる</param>
     public async Task FadeAsync(Ease? ease)
     {
         _fadeImage.gameObject.SetActive(true);
         _fadeImage.color *= new Color(1, 1, 1, 0);
         await _fadeImage.DOFade(1, _fadeTime).SetEase(ease != null ? (Ease)ease : _defaultDotweenEase).AsyncWaitForCompletion();
     }
+    /// <summary>
+    /// アンフェードをする機能
+    /// </summary>
+    /// <param name="ease">アンフェードする変化量　引数なしの場合設定されたデフォルトが呼ばれる</param>
     public async Task UnFadeAsync(Ease? ease)
     {
-        if(!_fadeImage)
-        {//                           これだとmissing参照missingでる
-            Debug.Log("fadeImage initialize");
-            ImageInitialize();
-        }
         _fadeImage.color *= new Color(1, 1, 1, 1);
         await _fadeImage.DOFade(0, _fadeTime).SetEase(ease != null ? (Ease)ease : _defaultDotweenEase).AsyncWaitForCompletion();
         _fadeImage.gameObject.SetActive(false);

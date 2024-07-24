@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SwitchTabImage : MonoBehaviour, IPointerClickHandler
+public class TabActiveSwitcher : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField,Tooltip("Animatorを持ち、Animator内部にBool「IsOpen」を持つ必要アリ")] GameObject _closeObject;
     Animator _animator;
@@ -24,7 +24,7 @@ public class SwitchTabImage : MonoBehaviour, IPointerClickHandler
     }
 
     public void OnPointerClick(PointerEventData eventData)
-    {
+    {//animatorが存在しているかつ、アニメーションが終了しているかを確認
         if (_animator && _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
         {
             Debug.Log("start switch tab");

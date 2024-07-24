@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: f32a141e3ff18614c90b1ff2224d864d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _muteSwitcherImage: {instanceID: 0}
+  - _speakerImage: {fileID: 21300000, guid: 76e0a0af40f236f4a9314c6d5de9a2e5, type: 3}
+  - _muteImage: {fileID: 21300000, guid: c71151c0fc25fb7458170c4ccceb69e0, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
