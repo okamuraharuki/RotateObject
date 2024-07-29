@@ -4,8 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - NowObject
-  - FadeImage
+  - SettingMenu
   layers:
   - Default
   - TransparentFX
