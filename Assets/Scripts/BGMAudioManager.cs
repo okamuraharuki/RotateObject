@@ -110,7 +110,11 @@ public class BGMAudioManager : MonoBehaviour
         }
         else
         {
-            Debug.Log($"_bgmClips[{indexClipBGM}] not aquipped");
+            Debug.LogWarning($"_bgmClips[{indexClipBGM}] not aquipped");
         }
+    }
+    public void StopBGM()
+    {
+        _audioSource.Stop();
     }
 }

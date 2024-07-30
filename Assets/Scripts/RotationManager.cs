@@ -16,9 +16,6 @@ public class RotationManager : MonoBehaviour
     float _sensivilityIndex = 0;
     public float SensivilityIndex => _sensivilityIndex;
 
-    [SerializeField] GameObject _initialAnswerObject;
-    [SerializeField] GameObject _initialRotationObject;
-
     GameObject _rotationObject;
     Quaternion _answerRotation;
 
@@ -32,6 +29,9 @@ public class RotationManager : MonoBehaviour
     public bool IsCorrect => _isCorrect;
     bool _initializeObject = false;
     public bool InitializeObject => _initializeObject;
+    bool _isAnswerRotation = false;
+    public bool IsAnswerRotation => _isAnswerRotation;
+
     bool _isMovable = false;
 
     private void Awake()
@@ -52,16 +52,17 @@ public class RotationManager : MonoBehaviour
         //セーブデータからスライダーと設定を初期化
         _sensivilityIndex = SaveManager.Instance.GetSaveData._sensitivityIndex;
         _sensivilitySlider.value = _sensivilityIndex;
-        //タイトルシーンに合わせたオブジェクトの初期化
-        Initialize(_initialAnswerObject.transform.rotation, _initialRotationObject);
     }
     /// <summary>
-    /// シーンの変更時に呼んで初期化する
+    /// オブジェクトの変更時に呼んで初期化する
     /// </summary>
     /// <param name="answerRotation">正解のオブジェクトのrotation</param>
     public void Initialize(Quaternion answerRotation, GameObject rotationObject)
     {
-        _questionSceneManager = FindAnyObjectByType<QuestionSceneManager>();
+        if(!_questionSceneManager)
+        {
+            _questionSceneManager = FindAnyObjectByType<QuestionSceneManager>();
+        }
         _answerRotation = answerRotation;
         _rotationObject = rotationObject;
         _isCorrect = false;
@@ -92,7 +93,7 @@ public class RotationManager : MonoBehaviour
                         //正解への回転開始
                         await AnswerRotation();
                         //出題中のオブジェクトなら動作を止める
-                        if (_questionSceneManager)
+                        if (_questionSceneManager && _questionSceneManager.IsQuestion)
                         {
                             _initializeObject = false;
                         }
@@ -151,12 +152,14 @@ public class RotationManager : MonoBehaviour
     /// </summary>
     async Task AnswerRotation()
     {
+        _isAnswerRotation = true;
         Debug.Log("start answer rotation");
         await _rotationObject.transform.DORotate(_answerRotation.eulerAngles, _timeRotation).SetEase(_easeRotation).AsyncWaitForCompletion();
-        if(!_questionSceneManager)
+        if(!_questionSceneManager || !_questionSceneManager.IsQuestion)
         {
             _isCorrect = false;
         }
+        _isAnswerRotation = false;
         Debug.Log("finish answer rotation");
         return;
     }

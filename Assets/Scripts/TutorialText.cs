@@ -3,6 +3,6 @@ using UnityEngine;
 [Serializable]
 public class TutorialText
 {
-    [SerializeField] string _text;
-    public string Text => _text;
+    [SerializeField, TextArea(1,2)] string _textData;
+    public string StringData => _textData;
 }

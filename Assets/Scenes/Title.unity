@@ -229,8 +229,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _basicSensivility: 6
   _sensivilitySlider: {fileID: 1039862771}
-  _initialAnswerObject: {fileID: 2404711914746871785}
-  _initialRotationObject: {fileID: 341225230}
   _answerVectorRange: 15
   _timeRotation: 3
   _easeRotation: 6
@@ -1252,11 +1250,11 @@ Transform:
   m_GameObject: {fileID: 589014631}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 400, y: 540, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1435972899}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &589014635
 MonoBehaviour:
@@ -1274,8 +1272,8 @@ MonoBehaviour:
   _bgmClips:
   - {fileID: 8300000, guid: dbfb46e90b1a5d24597f5f1955e3ed03, type: 3}
   - {fileID: 8300000, guid: c015e18f0950a4142bd4d986b05d9042, type: 3}
-  - {fileID: 8300000, guid: 547e791c4368583469ababeb79626e52, type: 3}
   - {fileID: 8300000, guid: d4c71c4301fbde8429dad4e0b765e1d3, type: 3}
+  - {fileID: 8300000, guid: 547e791c4368583469ababeb79626e52, type: 3}
   _bgmSlider: {fileID: 1553863194}
 --- !u!1 &593841368
 GameObject:
@@ -3189,11 +3187,11 @@ Transform:
   m_GameObject: {fileID: 1239831872}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 400, y: 540, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1435972899}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1239831874
 AudioSource:
@@ -3530,7 +3528,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 619, y: 118}
+  m_AnchoredPosition: {x: 600, y: 300}
   m_SizeDelta: {x: 464.71, y: 262.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1305801778
@@ -3609,7 +3607,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3671,6 +3669,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cfa1d661b83127429e88465f777928e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _initialAnswerObject: {fileID: 2404711914746871785}
+  _initialRotationObject: {fileID: 341225230}
 --- !u!1 &1336067772
 GameObject:
   m_ObjectHideFlags: 0
@@ -3707,39 +3707,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1435972898
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1435972899}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1435972899
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1435972898}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 400, y: 540, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 589014634}
-  - {fileID: 1239831873}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1436618518
 GameObject:
   m_ObjectHideFlags: 0
@@ -3798,19 +3765,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: c64fa960e37c7464db8380d3338c6f07, type: 3}
+    m_FontSize: 128
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 1
+    m_MaxSize: 128
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Play
 --- !u!222 &1436618521
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5703,7 +5670,8 @@ SceneRoots:
   - {fileID: 1715942836}
   - {fileID: 649877918}
   - {fileID: 323604859}
-  - {fileID: 1435972899}
+  - {fileID: 1239831873}
+  - {fileID: 589014634}
   - {fileID: 178813895}
   - {fileID: 1054120368}
   - {fileID: 119432617}
