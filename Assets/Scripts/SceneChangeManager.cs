@@ -25,12 +25,9 @@ public class SceneChangeManager : MonoBehaviour
     /// シーンを切り替える機能
     /// </summary>
     /// <param name="sceneIndex">BuildSettingsに設定した順番</param>
-    public async void SceneChangeAsync(int sceneIndex)
+    public void SceneChangeAsync(int sceneIndex)
     {
-        await FadeManager.Instance.FadeAsync(null);
         SceneManager.LoadSceneAsync(sceneIndex);
         Debug.Log($"loadScene[{sceneIndex}]");
-        await FadeManager.Instance.UnFadeAsync(null);
-        Debug.Log("unfade");
     }
 }
