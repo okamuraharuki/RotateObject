@@ -1,10 +1,10 @@
 using System.IO;
 using UnityEngine;
 
-public class SaveManager : MonoBehaviour
+public class SaveDataManager : MonoBehaviour
 {
-    static SaveManager _instance;
-    public static SaveManager Instance => _instance;
+    static SaveDataManager _instance;
+    public static SaveDataManager Instance => _instance;
     SaveData _saveData;
     public SaveData GetSaveData => _saveData;
     string _filepath;
@@ -54,6 +54,7 @@ public class SaveManager : MonoBehaviour
     void OnDestroy()
     {
         //ƒQ[ƒ€I—¹‚É•Û‘¶
+
         _saveData._sensitivityIndex = RotationManager.Instance.SensivilityIndex;
         _saveData._muteBGM = BGMAudioManager.Instance.GetIsMuteBGM;
         _saveData._volumeBGM = BGMAudioManager.Instance.GetVolumeBGM;

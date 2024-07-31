@@ -33,8 +33,8 @@ public class SEAudioManager : MonoBehaviour
     void Start()
     {
         //SaveManager‚©‚çƒf[ƒ^æ‚è‚İ
-        _volumeSE = SaveManager.Instance.GetSaveData._volumeSE;
-        _isMuteSE = SaveManager.Instance.GetSaveData._muteSE;
+        _volumeSE = SaveDataManager.Instance.GetSaveData._volumeSE;
+        _isMuteSE = SaveDataManager.Instance.GetSaveData._muteSE;
 
         //Audiomanager‰Šú‰»
         if (_seSlider)

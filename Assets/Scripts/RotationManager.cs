@@ -50,7 +50,7 @@ public class RotationManager : MonoBehaviour
     private void Start()
     {
         //セーブデータからスライダーと設定を初期化
-        _sensivilityIndex = SaveManager.Instance.GetSaveData._sensitivityIndex;
+        _sensivilityIndex = SaveDataManager.Instance.GetSaveData._sensitivityIndex;
         _sensivilitySlider.value = _sensivilityIndex;
     }
     /// <summary>
@@ -88,8 +88,8 @@ public class RotationManager : MonoBehaviour
                     if (CheckCorrect())
                     {
                         _isCorrect = true;
-                        //音を鳴らす
-                        SEAudioManager.Instance.PlayClipSE(0);
+                    //音を鳴らす
+                    SEAudioManager.Instance.PlayClipSE(0);
                         //正解への回転開始
                         await AnswerRotation();
                         //出題中のオブジェクトなら動作を止める
@@ -101,8 +101,8 @@ public class RotationManager : MonoBehaviour
                 }
             }
             else
-            {//クリア時に右クリックがされたら回転の演出を瞬時に完了させる
-                if(Input.GetMouseButtonDown(0))
+            {//クリア時に左クリックがされたら回転の演出を瞬時に完了させる
+                if(Input.GetMouseButtonDown(1))
                 {
                     KillAnswerRotation();
                 }

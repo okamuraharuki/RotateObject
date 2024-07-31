@@ -45,7 +45,7 @@ public class ImageSwitcher : MonoBehaviour
         }
         else if(_switchImageType == SwitchImageType.BGM)
         {
-            if(SaveManager.Instance.GetSaveData._muteBGM)
+            if(SaveDataManager.Instance.GetSaveData._muteBGM)
             {
                 _switcherImage.sprite = _negativeImage;
             }
@@ -56,7 +56,7 @@ public class ImageSwitcher : MonoBehaviour
         }
         else
         {
-            if (SaveManager.Instance.GetSaveData._muteSE)
+            if (SaveDataManager.Instance.GetSaveData._muteSE)
             {
                 _switcherImage.sprite = _negativeImage;
             }

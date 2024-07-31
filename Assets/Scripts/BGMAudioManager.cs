@@ -35,8 +35,8 @@ public class BGMAudioManager : MonoBehaviour
     async void Start()
     {
         //SaveManager‚©‚çƒf[ƒ^æ‚è‚İ
-        _volumeBGM = SaveManager.Instance.GetSaveData._volumeBGM;
-        _isMuteBGM = SaveManager.Instance.GetSaveData._muteBGM;
+        _volumeBGM = SaveDataManager.Instance.GetSaveData._volumeBGM;
+        _isMuteBGM = SaveDataManager.Instance.GetSaveData._muteBGM;
 
         //Audiomanager‰Šú‰»
         if (_bgmSlider)
