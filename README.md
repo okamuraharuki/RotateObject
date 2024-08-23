@@ -1,6 +1,6 @@
 # RotateObject概要説明
 
-## 使っている技術
+## こだわった実装、技術
 * Dotweenを使用したアニメーション
   * AsyncWaitForCompletionによる非同期処理やeaseによる動作遷移の制御などを目的に使用
   * [関連コード : 回転機能](https://github.com/okamuraharuki/RotateObject/blob/main/Assets/Scripts/RotationManager.cs#L153-L165)
