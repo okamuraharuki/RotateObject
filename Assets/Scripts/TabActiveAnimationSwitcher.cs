@@ -1,9 +1,9 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class TabActiveAnimationSwitcher : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField,Tooltip("Animator‚ğ‚¿AAnimator“à•”‚ÉBooluIsActivev‚ğ‚Â•K—vƒAƒŠ")] GameObject _closeObject;
+    [SerializeField,Tooltip("Animatorã‚’æŒã¡ã€Animatorå†…éƒ¨ã«Boolã€ŒIsActiveã€ã‚’æŒã¤å¿…è¦ã‚¢ãƒª")] GameObject _closeObject;
     Animator _animator;
     bool _isActive = false;
     void Start()
@@ -24,7 +24,7 @@ public class TabActiveAnimationSwitcher : MonoBehaviour, IPointerClickHandler
     }
 
     public void OnPointerClick(PointerEventData eventData)
-    {//animator‚ª‘¶İ‚µ‚Ä‚¢‚é‚©‚ÂAƒAƒjƒ[ƒVƒ‡ƒ“‚ªI—¹‚µ‚Ä‚¢‚é‚©‚ğŠm”F
+    {//animatorãŒå­˜åœ¨ã—ã¦ã„ã‚‹ã‹ã¤ã€ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ãŒçµ‚äº†ã—ã¦ã„ã‚‹ã‹ã‚’ç¢ºèª
         if (_animator &&  _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
         {
             Debug.Log("start switch tab");
@@ -40,10 +40,10 @@ public class TabActiveAnimationSwitcher : MonoBehaviour, IPointerClickHandler
         }
     }
     /// <summary>
-    /// Button‚ÅØ‚è‘Ö‚¦‚é—p
+    /// Buttonã§åˆ‡ã‚Šæ›¿ãˆã‚‹ç”¨
     /// </summary>
     public void ChangeActiveTab()
-    {//animator‚ª‘¶İ‚µ‚Ä‚¢‚é‚©‚ÂAƒAƒjƒ[ƒVƒ‡ƒ“‚ªI—¹‚µ‚Ä‚¢‚é‚©‚ğŠm”F
+    {//animatorãŒå­˜åœ¨ã—ã¦ã„ã‚‹ã‹ã¤ã€ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ãŒçµ‚äº†ã—ã¦ã„ã‚‹ã‹ã‚’ç¢ºèª
         if (_animator && _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
         {
             Debug.Log("start switch tab");

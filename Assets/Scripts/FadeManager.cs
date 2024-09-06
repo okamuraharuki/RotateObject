@@ -1,4 +1,4 @@
-using DG.Tweening;
+ï»¿using DG.Tweening;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,7 +12,7 @@ public class FadeManager : MonoBehaviour
     [SerializeField] Ease _defaultDotweenEase = Ease.Linear;
     private void Awake()
     {
-        //ƒVƒ“ƒOƒ‹ƒgƒ“
+        //ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³
         if (_instance != null)
         {
             Destroy(gameObject);
@@ -24,9 +24,9 @@ public class FadeManager : MonoBehaviour
         }
     }
     /// <summary>
-    /// ƒtƒF[ƒh‚ğ‚·‚é‹@”\
+    /// ãƒ•ã‚§ãƒ¼ãƒ‰ã‚’ã™ã‚‹æ©Ÿèƒ½
     /// </summary>
-    /// <param name="ease">ƒtƒF[ƒh‚·‚é•Ï‰»—Ê@ˆø”‚È‚µ‚Ìê‡İ’è‚³‚ê‚½ƒfƒtƒHƒ‹ƒg‚ªŒÄ‚Î‚ê‚é</param>
+    /// <param name="ease">ãƒ•ã‚§ãƒ¼ãƒ‰ã™ã‚‹å¤‰åŒ–é‡ã€€å¼•æ•°ãªã—ã®å ´åˆè¨­å®šã•ã‚ŒãŸãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãŒå‘¼ã°ã‚Œã‚‹</param>
     public async Task FadeAsync(Ease? ease)
     {
         _fadeImage.gameObject.SetActive(true);
@@ -34,9 +34,9 @@ public class FadeManager : MonoBehaviour
         await _fadeImage.DOFade(1, _fadeTime).SetEase(ease != null ? (Ease)ease : _defaultDotweenEase).AsyncWaitForCompletion();
     }
     /// <summary>
-    /// ƒAƒ“ƒtƒF[ƒh‚ğ‚·‚é‹@”\
+    /// ã‚¢ãƒ³ãƒ•ã‚§ãƒ¼ãƒ‰ã‚’ã™ã‚‹æ©Ÿèƒ½
     /// </summary>
-    /// <param name="ease">ƒAƒ“ƒtƒF[ƒh‚·‚é•Ï‰»—Ê@ˆø”‚È‚µ‚Ìê‡İ’è‚³‚ê‚½ƒfƒtƒHƒ‹ƒg‚ªŒÄ‚Î‚ê‚é</param>
+    /// <param name="ease">ã‚¢ãƒ³ãƒ•ã‚§ãƒ¼ãƒ‰ã™ã‚‹å¤‰åŒ–é‡ã€€å¼•æ•°ãªã—ã®å ´åˆè¨­å®šã•ã‚ŒãŸãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãŒå‘¼ã°ã‚Œã‚‹</param>
     public async Task UnFadeAsync(Ease? ease)
     {
         _fadeImage.color *= new Color(1, 1, 1, 1);

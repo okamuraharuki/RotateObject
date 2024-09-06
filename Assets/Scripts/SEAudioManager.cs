@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,19 +7,19 @@ public class SEAudioManager : MonoBehaviour
 {
     static SEAudioManager _instance;
     public static SEAudioManager Instance => _instance;
-    [SerializeField, Tooltip("SE‚ğ‚Ü‚Æ‚ß‚é”z—ñ")] List<AudioClip> _seClips;
-    [SerializeField, Tooltip("SEVolume‚ğ’²ß‚·‚éƒXƒ‰ƒCƒ_[")] Slider _seSlider;
+    [SerializeField, Tooltip("SEã‚’ã¾ã¨ã‚ã‚‹é…åˆ—")] List<AudioClip> _seClips;
+    [SerializeField, Tooltip("SEVolumeã‚’èª¿ç¯€ã™ã‚‹ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼")] Slider _seSlider;
     AudioSource _audioSource;
     float _volumeSE = 0.5f;
     /// <summary>
-    /// ƒZ[ƒu—p
+    /// ã‚»ãƒ¼ãƒ–ç”¨
     /// </summary>
     public float GetVolumeSE => _volumeSE;
     bool _isMuteSE = false;
     public bool GetIsMuteSE => _isMuteSE;
     private void Awake()
     {
-        //ƒVƒ“ƒOƒ‹ƒgƒ“
+        //ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³
         if (_instance != null)
         {
             Destroy(gameObject);
@@ -32,11 +32,11 @@ public class SEAudioManager : MonoBehaviour
     }
     void Start()
     {
-        //SaveManager‚©‚çƒf[ƒ^æ‚è‚İ
+        //SaveManagerã‹ã‚‰ãƒ‡ãƒ¼ã‚¿å–ã‚Šè¾¼ã¿
         _volumeSE = SaveDataManager.Instance.GetSaveData._volumeSE;
         _isMuteSE = SaveDataManager.Instance.GetSaveData._muteSE;
 
-        //Audiomanager‰Šú‰»
+        //AudiomanageråˆæœŸåŒ–
         if (_seSlider)
         {
             _seSlider.value = (int)Mathf.Abs(_volumeSE * 10);
@@ -45,9 +45,9 @@ public class SEAudioManager : MonoBehaviour
         Debug.Log("Initialize Audio");
     }
     /// <summary>
-    /// SE‚ğ–Â‚ç‚·
+    /// SEã‚’é³´ã‚‰ã™
     /// </summary>
-    /// <param name="indexClipSE">seClips“à‚Å‚ÌŠ„‚è“–‚Ä”Ô†</param>
+    /// <param name="indexClipSE">seClipså†…ã§ã®å‰²ã‚Šå½“ã¦ç•ªå·</param>
     public void PlayClipSE(int indexClipSE)
     {
         if (indexClipSE < _seClips.Count)
@@ -67,9 +67,9 @@ public class SEAudioManager : MonoBehaviour
         }
     }
     /// <summary>
-    /// SE‚Ì‰¹—Ê‚ğ•ÏX‚·‚é/ƒ{ƒ^ƒ“‚ÅŒÄ‚Ô
+    /// SEã®éŸ³é‡ã‚’å¤‰æ›´ã™ã‚‹/ãƒœã‚¿ãƒ³ã§å‘¼ã¶
     /// </summary>
-    /// <param name="volume">PlayOneShot‚ÌvolumeScale‚ª0-1ƒXƒP[ƒ‹‚Ì‚½‚ß0.1”{</param>
+    /// <param name="volume">PlayOneShotã®volumeScaleãŒ0-1ã‚¹ã‚±ãƒ¼ãƒ«ã®ãŸã‚0.1å€</param>
     public void ChangeSEVolume(float volume)
     {
         if (!_audioSource)
@@ -80,7 +80,7 @@ public class SEAudioManager : MonoBehaviour
         _volumeSE = volume * 0.1f;
     }
     /// <summary>
-    /// SE‚Ì‰¹—Ê‚ğƒ~ƒ…[ƒg‚É‚·‚é
+    /// SEã®éŸ³é‡ã‚’ãƒŸãƒ¥ãƒ¼ãƒˆã«ã™ã‚‹
     /// </summary>
     public void SwitchMuteSE()
     {

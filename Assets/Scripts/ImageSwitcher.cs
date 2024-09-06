@@ -1,9 +1,9 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 
 public class ImageSwitcher : MonoBehaviour
 {
-    [SerializeField, Tooltip("•Ï‰»‚³‚¹‚éƒCƒ[ƒW")] Image _switcherImage;
+    [SerializeField, Tooltip("å¤‰åŒ–ã•ã›ã‚‹ã‚¤ãƒ¡ãƒ¼ã‚¸")] Image _switcherImage;
     [SerializeField] Sprite _aciveImage;
     [SerializeField] Sprite _negativeImage;
     [SerializeField] SwitchImageType _switchImageType;
@@ -67,7 +67,7 @@ public class ImageSwitcher : MonoBehaviour
         }
     }
     /// <summary>
-    /// Sprite•ÏX‚ğ‚·‚é‹@”\
+    /// Spriteå¤‰æ›´ã‚’ã™ã‚‹æ©Ÿèƒ½
     /// </summary>
     public void SwitchImageActive()
     {

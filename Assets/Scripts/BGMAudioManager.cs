@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,20 +8,20 @@ public class BGMAudioManager : MonoBehaviour
 {
     static BGMAudioManager _instance;
     public static BGMAudioManager Instance => _instance;
-    [SerializeField, Tooltip("ƒV[ƒ“‚ª“Ç‚İ‚Ü‚ê‚Ä‚©‚çBGM‚ª—¬‚ê‚é‚Ü‚Å‚Ì•b”")] float _startTimeBGM = 1.0f;
-    [SerializeField, Tooltip("BGM‚ğ‚Ü‚Æ‚ß‚é”z—ñ\nBuildSettings‚ÉƒV[ƒ“‚ª“o˜^‚³‚ê‚Ä‚¢‚é”Ô†‚Í\n‚»‚ÌƒV[ƒ“‚Ì‰ŠúBGM‚É‚È‚é‚Ì‚Å’ˆÓ")] List<AudioClip> _bgmClips;
-    [SerializeField, Tooltip("BGMVolume‚ğ’²ß‚·‚éƒXƒ‰ƒCƒ_[")] Slider _bgmSlider;
+    [SerializeField, Tooltip("ã‚·ãƒ¼ãƒ³ãŒèª­ã¿è¾¼ã¾ã‚Œã¦ã‹ã‚‰BGMãŒæµã‚Œã‚‹ã¾ã§ã®ç§’æ•°")] float _startTimeBGM = 1.0f;
+    [SerializeField, Tooltip("BGMã‚’ã¾ã¨ã‚ã‚‹é…åˆ—\nBuildSettingsã«ã‚·ãƒ¼ãƒ³ãŒç™»éŒ²ã•ã‚Œã¦ã„ã‚‹ç•ªå·ã¯\nãã®ã‚·ãƒ¼ãƒ³ã®åˆæœŸBGMã«ãªã‚‹ã®ã§æ³¨æ„")] List<AudioClip> _bgmClips;
+    [SerializeField, Tooltip("BGMVolumeã‚’èª¿ç¯€ã™ã‚‹ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼")] Slider _bgmSlider;
     AudioSource _audioSource;
     float _volumeBGM = 0.2f;
     /// <summary>
-    /// ƒZ[ƒu—p
+    /// ã‚»ãƒ¼ãƒ–ç”¨
     /// </summary>
     public float GetVolumeBGM => _volumeBGM;
     bool _isMuteBGM = false;
     public bool GetIsMuteBGM => _isMuteBGM;
     private void Awake()
     {
-        //ƒVƒ“ƒOƒ‹ƒgƒ“
+        //ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³
         if (_instance != null)
         {
             Destroy(gameObject);
@@ -34,11 +34,11 @@ public class BGMAudioManager : MonoBehaviour
     }
     async void Start()
     {
-        //SaveManager‚©‚çƒf[ƒ^æ‚è‚İ
+        //SaveManagerã‹ã‚‰ãƒ‡ãƒ¼ã‚¿å–ã‚Šè¾¼ã¿
         _volumeBGM = SaveDataManager.Instance.GetSaveData._volumeBGM;
         _isMuteBGM = SaveDataManager.Instance.GetSaveData._muteBGM;
 
-        //Audiomanager‰Šú‰»
+        //AudiomanageråˆæœŸåŒ–
         if (_bgmSlider)
         {
             _bgmSlider.value = (int)Mathf.Abs(_volumeBGM * 10);
@@ -62,9 +62,9 @@ public class BGMAudioManager : MonoBehaviour
         ChangeClipBGM(0);
     }
     /// <summary>
-    /// BGM‚Ì‰¹—Ê‚ğ•ÏX‚·‚é/ƒ{ƒ^ƒ“‚ÅŒÄ‚Ô
+    /// BGMã®éŸ³é‡ã‚’å¤‰æ›´ã™ã‚‹/ãƒœã‚¿ãƒ³ã§å‘¼ã¶
     /// </summary>
-    /// <param name="volume">AudioSorce‚ÌvolumeScale‚ª0-1ƒXƒP[ƒ‹‚Ì‚½‚ß0.1”{</param>
+    /// <param name="volume">AudioSorceã®volumeScaleãŒ0-1ã‚¹ã‚±ãƒ¼ãƒ«ã®ãŸã‚0.1å€</param>
     public void ChangeBGMVolume(float volume)
     {
         if (!_audioSource)
@@ -83,7 +83,7 @@ public class BGMAudioManager : MonoBehaviour
         }
     }
     /// <summary>
-    /// BGM‚Ì‰¹—Ê‚ğƒ~ƒ…[ƒg‚É‚·‚é
+    /// BGMã®éŸ³é‡ã‚’ãƒŸãƒ¥ãƒ¼ãƒˆã«ã™ã‚‹
     /// </summary>
     public void SwitchMuteBGM()
     {
@@ -98,9 +98,9 @@ public class BGMAudioManager : MonoBehaviour
         }
     }
     /// <summary>
-    /// BGM‚ğ•ÏX‚µ‚Ä—¬‚·
+    /// BGMã‚’å¤‰æ›´ã—ã¦æµã™
     /// </summary>
-    /// <param name="indexClipBGM">bgmClips“à‚Å‚ÌŠ„‚è“–‚Ä”Ô†</param>
+    /// <param name="indexClipBGM">bgmClipså†…ã§ã®å‰²ã‚Šå½“ã¦ç•ªå·</param>
     public void ChangeClipBGM(int indexClipBGM)
     {
         if (indexClipBGM < _bgmClips.Count)

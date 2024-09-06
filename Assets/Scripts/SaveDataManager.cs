@@ -1,4 +1,4 @@
-using System.IO;
+ï»¿using System.IO;
 using UnityEngine;
 
 public class SaveDataManager : MonoBehaviour
@@ -11,7 +11,7 @@ public class SaveDataManager : MonoBehaviour
     string _fileName = "SaveData.json";
     private void Awake()
     {
-        //ƒVƒ“ƒOƒ‹ƒgƒ“
+        //ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³
         if (_instance != null)
         {
             Destroy(gameObject);
@@ -21,16 +21,16 @@ public class SaveDataManager : MonoBehaviour
             _instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        //ƒZ[ƒuƒtƒ@ƒCƒ‹‚ğ’T‚µ‚Ä‘¶İ‚·‚é‚È‚çƒ[ƒh
+        //ã‚»ãƒ¼ãƒ–ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ¢ã—ã¦å­˜åœ¨ã™ã‚‹ãªã‚‰ãƒ­ãƒ¼ãƒ‰
         _filepath = Application.dataPath + "/" + _fileName;
-        // ƒtƒ@ƒCƒ‹‚ª‚È‚¢‚Æ‚«Aƒtƒ@ƒCƒ‹ì¬
+        // ãƒ•ã‚¡ã‚¤ãƒ«ãŒãªã„ã¨ãã€ãƒ•ã‚¡ã‚¤ãƒ«ä½œæˆ
         if (!File.Exists(_filepath))
         {
-            //‰Šúİ’è—p‚ÌƒNƒ‰ƒXì¬
+            //åˆæœŸè¨­å®šç”¨ã®ã‚¯ãƒ©ã‚¹ä½œæˆ
             SaveData initialSaveData = new SaveData();
             Save(initialSaveData);
         }
-        // ƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚ñ‚Ådata‚ÉŠi”[
+        // ãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã‚“ã§dataã«æ ¼ç´
         _saveData = Load(_filepath);
 
     }
@@ -53,7 +53,7 @@ public class SaveDataManager : MonoBehaviour
 
     void OnDestroy()
     {
-        //ƒQ[ƒ€I—¹‚É•Û‘¶
+        //ã‚²ãƒ¼ãƒ çµ‚äº†æ™‚ã«ä¿å­˜
 
         _saveData._sensitivityIndex = RotationManager.Instance.SensivilityIndex;
         _saveData._muteBGM = BGMAudioManager.Instance.GetIsMuteBGM;

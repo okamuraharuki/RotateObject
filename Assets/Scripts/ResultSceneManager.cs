@@ -1,4 +1,4 @@
-using DG.Tweening;
+ï»¿using DG.Tweening;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +16,7 @@ public class ResultSceneManager : MonoBehaviour
     [SerializeField] Text _nextToClickText;
     [SerializeField] Vector3 _particleSpawnLowerLeft = new Vector3(-4, -4, -6);
     [SerializeField] Vector3 _particleSpawnUpperRight = new Vector3(4, 4, -2);
-    [SerializeField, Tooltip("³‰ğ‚Ìƒp[ƒeƒBƒNƒ‹")] GameObject _answerParticleObject;
+    [SerializeField, Tooltip("æ­£è§£æ™‚ã®ãƒ‘ãƒ¼ãƒ†ã‚£ã‚¯ãƒ«")] GameObject _answerParticleObject;
     [SerializeField] float _spawnTime = 1.5f;
     float _currentTime = 0;
     bool _finishEffect = false;
@@ -35,11 +35,11 @@ public class ResultSceneManager : MonoBehaviour
         if (SaveDataManager.Instance.GetSaveData._ranking.Contains(ScoreManager.Instance.CurrentScore))
         {
             _highScoreText.color = new Color(0.5f, 1, 0.5f, 0);
-            _highScoreText.text = "ƒ‰ƒ“ƒLƒ“ƒOXVI";
+            _highScoreText.text = "ãƒ©ãƒ³ã‚­ãƒ³ã‚°æ›´æ–°ï¼";
             _highScoreText.DOFade(1f, 1f).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo);
         }
         _nextToClickText.color = new Color(0, 0, 0, 0);
-        _nextToClickText.text = "¶ƒNƒŠƒbƒN‚Åƒ^ƒCƒgƒ‹‚Ö";
+        _nextToClickText.text = "å·¦ã‚¯ãƒªãƒƒã‚¯ã§ã‚¿ã‚¤ãƒˆãƒ«ã¸";
         _nextToClickText.DOFade(1f, 1f).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo);
         _finishEffect = true;
     }
@@ -49,7 +49,7 @@ public class ResultSceneManager : MonoBehaviour
         if(_currentTime > _spawnTime)
         {
             _currentTime = 0;
-            //ƒp[ƒeƒBƒNƒ‹¶¬
+            //ãƒ‘ãƒ¼ãƒ†ã‚£ã‚¯ãƒ«ç”Ÿæˆ
             ParticleSpawn();
         }
         if (_finishEffect && Input.GetMouseButtonDown(0))
@@ -68,7 +68,7 @@ public class ResultSceneManager : MonoBehaviour
         BGMAudioManager.Instance.ChangeClipBGM(0);
     }
     /// <summary>
-    /// Ä‹NŠÖ”‚Å–ñ‚PD‚T•b‚Éˆê‰ñƒp[ƒeƒBƒNƒ‹‚ğ¶¬
+    /// å†èµ·é–¢æ•°ã§ç´„ï¼‘ï¼ï¼•ç§’ã«ä¸€å›ãƒ‘ãƒ¼ãƒ†ã‚£ã‚¯ãƒ«ã‚’ç”Ÿæˆ
     /// </summary>
     async Task ParticleSpawn()
     {
