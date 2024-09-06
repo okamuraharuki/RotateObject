@@ -1,4 +1,4 @@
-using DG.Tweening;
+ï»¿using DG.Tweening;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,12 +11,12 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager Instance => _instance;
     int _currentScore;
     public int CurrentScore => _currentScore;
-    [SerializeField, Tooltip("ƒ^ƒCƒ€‚ªƒXƒRƒA‚É—^‚¦‚é‰e‹¿‚ğŠÇ—‚·‚éŒW”")] float _timeScoreScaleIndex = 0.7f;
-    [SerializeField, Tooltip("ƒXƒRƒA‚ªƒJƒEƒ“ƒgƒAƒbƒv‚·‚éŠÔi•bj")] float _scoreCountUpTime = 1.5f;
-    [SerializeField, Tooltip("ƒXƒRƒA‚ªƒJƒEƒ“ƒgƒAƒbƒv‚·‚é‘JˆÚ")] Ease _easeScoreCountUp = Ease.Linear;
+    [SerializeField, Tooltip("ã‚¿ã‚¤ãƒ ãŒã‚¹ã‚³ã‚¢ã«ä¸ãˆã‚‹å½±éŸ¿ã‚’ç®¡ç†ã™ã‚‹ä¿‚æ•°")] float _timeScoreScaleIndex = 0.7f;
+    [SerializeField, Tooltip("ã‚¹ã‚³ã‚¢ãŒã‚«ã‚¦ãƒ³ãƒˆã‚¢ãƒƒãƒ—ã™ã‚‹æ™‚é–“ï¼ˆç§’ï¼‰")] float _scoreCountUpTime = 1.5f;
+    [SerializeField, Tooltip("ã‚¹ã‚³ã‚¢ãŒã‚«ã‚¦ãƒ³ãƒˆã‚¢ãƒƒãƒ—ã™ã‚‹é·ç§»")] Ease _easeScoreCountUp = Ease.Linear;
     void Awake()
     {
-        //ƒVƒ“ƒOƒ‹ƒgƒ“
+        //ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³
         if (_instance != null)
         {
             Destroy(gameObject);
@@ -28,12 +28,12 @@ public class ScoreManager : MonoBehaviour
         }
     }
     /// <summary>
-    /// ƒXƒRƒA‰ÁZ‚ÆƒeƒLƒXƒg‚Å‚Ì‰‰o
+    /// ã‚¹ã‚³ã‚¢åŠ ç®—ã¨ãƒ†ã‚­ã‚¹ãƒˆã§ã®æ¼”å‡º
     /// </summary>
-    /// <param name="targetTime">–â‘è‚Å’è‹`‚³‚ê‚½–Ú•WŠÔ</param>
-    /// <param name="currentTime">–â‘è‚ğ‰ğ‚­‚Ì‚É‚©‚©‚Á‚½ŠÔ</param>
-    /// <param name="baseScore">–â‘è‚Å’è‹`‚³‚ê‚½Šî‘bƒXƒRƒA</param>
-    /// <param name="_scoreText">ƒXƒRƒA‚ğ”½‰f‚·‚éƒeƒLƒXƒg</param>
+    /// <param name="targetTime">å•é¡Œã§å®šç¾©ã•ã‚ŒãŸç›®æ¨™æ™‚é–“</param>
+    /// <param name="currentTime">å•é¡Œã‚’è§£ãã®ã«ã‹ã‹ã£ãŸæ™‚é–“</param>
+    /// <param name="baseScore">å•é¡Œã§å®šç¾©ã•ã‚ŒãŸåŸºç¤ã‚¹ã‚³ã‚¢</param>
+    /// <param name="_scoreText">ã‚¹ã‚³ã‚¢ã‚’åæ˜ ã™ã‚‹ãƒ†ã‚­ã‚¹ãƒˆ</param>
     /// <returns></returns>
     public int CaluculateAndAddScore(float targetTime, float currentTime, int baseScore, Text _scoreText)
     {
@@ -42,22 +42,22 @@ public class ScoreManager : MonoBehaviour
         _currentScore += score;
         return score;
     }
-    //Œ»İ‚Ì•Û‚µ‚Ä‚¢‚éƒXƒRƒA‚ÌƒŠƒZƒbƒg
+    //ç¾åœ¨ã®ä¿æŒã—ã¦ã„ã‚‹ã‚¹ã‚³ã‚¢ã®ãƒªã‚»ãƒƒãƒˆ
     public void ResetScore()
     {
         _currentScore = 0;
     }
     /// <summary>
-    /// Œ»İ‚ÌƒXƒRƒA‚ªƒ‰ƒ“ƒLƒ“ƒO‚É“ü‚é‚©”»’è
+    /// ç¾åœ¨ã®ã‚¹ã‚³ã‚¢ãŒãƒ©ãƒ³ã‚­ãƒ³ã‚°ã«å…¥ã‚‹ã‹åˆ¤å®š
     /// </summary>
     public void ScoreRankCheck()
     {
         List<int> highScoreList = SaveDataManager.Instance.GetSaveData._ranking.ToList();
         highScoreList.Add(_currentScore);
-        //~‡
+        //é™é †
         highScoreList = highScoreList.OrderBy(x => -x).ToList();
         int[] newRanking = new int[SaveDataManager.Instance.GetSaveData._ranking.Length];
-        //V‚µ‚­”z—ñ‚ğì‚è’l‚ğƒRƒs[‚µ‚ÄƒZ[ƒuƒf[ƒ^‚É•Ô‚·
+        //æ–°ã—ãé…åˆ—ã‚’ä½œã‚Šå€¤ã‚’ã‚³ãƒ”ãƒ¼ã—ã¦ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ã«è¿”ã™
         for (int i = 0; i < SaveDataManager.Instance.GetSaveData._ranking.Length; i++)
         {
             newRanking[i] = highScoreList[i];

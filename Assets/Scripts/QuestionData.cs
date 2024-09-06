@@ -1,18 +1,18 @@
-using System;
+ï»¿using System;
 using UnityEngine;
 
 [Serializable]
 public class QuestionData
 {
-    [SerializeField, Tooltip("ƒvƒŒƒCƒ„[‚ª“®‚©‚¹‚éƒIƒuƒWƒFƒNƒg")] GameObject _questionObject;
+    [SerializeField, Tooltip("ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒå‹•ã‹ã›ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ")] GameObject _questionObject;
     public GameObject GetQuestionObject => _questionObject;
-    [SerializeField, Tooltip("³‰ð‚Æ‚µ‚Ä¶¬‚·‚éƒIƒuƒWƒFƒNƒg")] GameObject _answerObject;
+    [SerializeField, Tooltip("æ­£è§£ã¨ã—ã¦ç”Ÿæˆã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ")] GameObject _answerObject;
     public GameObject GetAnswerObject => _answerObject;
     [SerializeField] string _questionText;
     public string QuestionText => _questionText;
-    [SerializeField, Tooltip("‚±‚Ì–â‘è‚ÌŠî‘b“¾“_")] int _defaultScore;
+    [SerializeField, Tooltip("ã“ã®å•é¡Œã®åŸºç¤Žå¾—ç‚¹")] int _defaultScore;
     public int DefaultScore => _defaultScore;
 
-    [SerializeField, Tooltip("–Ú•Wƒ^ƒCƒ€(•b)")] float _targetTime;
+    [SerializeField, Tooltip("ç›®æ¨™ã‚¿ã‚¤ãƒ (ç§’)")] float _targetTime;
     public float TargetTime => _targetTime;
 }

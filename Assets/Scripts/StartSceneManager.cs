@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class StartSceneManager : MonoBehaviour
 {
@@ -7,7 +7,7 @@ public class StartSceneManager : MonoBehaviour
     [SerializeField] GameObject _initialRotationObject;
     private void Start()
     {
-        //ƒ^ƒCƒgƒ‹ƒV[ƒ“‚É‡‚í‚¹‚½ƒIƒuƒWƒFƒNƒg‚Ì‰Šú‰»
+        //ã‚¿ã‚¤ãƒˆãƒ«ã‚·ãƒ¼ãƒ³ã«åˆã‚ã›ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®åˆæœŸåŒ–
         RotationManager.Instance.Initialize(_initialAnswerObject.transform.rotation, _initialRotationObject);
     }
     public async void ChangeNormal()

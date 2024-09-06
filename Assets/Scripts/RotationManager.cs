@@ -1,4 +1,4 @@
-using DG.Tweening;
+ï»¿using DG.Tweening;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -11,17 +11,17 @@ public class RotationManager : MonoBehaviour
     static RotationManager _instance;
     public static RotationManager Instance => _instance;
 
-    [SerializeField, Tooltip("ƒIƒuƒWƒFƒNƒg‚Ì‰ñ“]‘¬“x‚ÌŠî‘b’li0.2-2.0”{‚Å•Ï‚í‚éj")] float _basicSensivility = 1.5f;
-    [SerializeField, Tooltip("sensivilityIndex‚ğ‚¢‚¶‚éƒXƒ‰ƒCƒ_[")] Slider _sensivilitySlider;
+    [SerializeField, Tooltip("ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å›è»¢é€Ÿåº¦ã®åŸºç¤å€¤ï¼ˆ0.2-2.0å€ã§å¤‰ã‚ã‚‹ï¼‰")] float _basicSensivility = 1.5f;
+    [SerializeField, Tooltip("sensivilityIndexã‚’ã„ã˜ã‚‹ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼")] Slider _sensivilitySlider;
     float _sensivilityIndex = 0;
     public float SensivilityIndex => _sensivilityIndex;
 
     GameObject _rotationObject;
     Quaternion _answerRotation;
 
-    [SerializeField, Tooltip("³Œë”»’è‚ÌƒIƒuƒWƒFƒNƒg‚Ì‹–—eŠp“x")] private float _answerVectorRange = 15f;
-    [SerializeField, Tooltip("³‰ğ‚ÌA•¨‘Ì‚ª‰ñ“]‚µ‚«‚é‚Ü‚Å‚ÌŠÔ")] float _timeRotation = 2f;
-    [SerializeField, Tooltip("³‰ğ‚ÌA•¨‘Ì‚Ì‰ñ“]—Ê‚Ì„ˆÚ")] Ease _easeRotation = Ease.Linear;
+    [SerializeField, Tooltip("æ­£èª¤åˆ¤å®šã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®è¨±å®¹è§’åº¦")] private float _answerVectorRange = 15f;
+    [SerializeField, Tooltip("æ­£è§£æ™‚ã®ã€ç‰©ä½“ãŒå›è»¢ã—ãã‚‹ã¾ã§ã®æ™‚é–“")] float _timeRotation = 2f;
+    [SerializeField, Tooltip("æ­£è§£æ™‚ã®ã€ç‰©ä½“ã®å›è»¢é‡ã®æ¨ç§»")] Ease _easeRotation = Ease.Linear;
 
     QuestionSceneManager _questionSceneManager;
 
@@ -36,7 +36,7 @@ public class RotationManager : MonoBehaviour
 
     private void Awake()
     {
-        //ƒVƒ“ƒOƒ‹ƒgƒ“
+        //ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³
         if (_instance != null)
         {
             Destroy(gameObject);
@@ -49,14 +49,14 @@ public class RotationManager : MonoBehaviour
     }
     private void Start()
     {
-        //ƒZ[ƒuƒf[ƒ^‚©‚çƒXƒ‰ƒCƒ_[‚Æİ’è‚ğ‰Šú‰»
+        //ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ã‹ã‚‰ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ã¨è¨­å®šã‚’åˆæœŸåŒ–
         _sensivilityIndex = SaveDataManager.Instance.GetSaveData._sensitivityIndex;
         _sensivilitySlider.value = _sensivilityIndex;
     }
     /// <summary>
-    /// ƒIƒuƒWƒFƒNƒg‚Ì•ÏX‚ÉŒÄ‚ñ‚Å‰Šú‰»‚·‚é
+    /// ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å¤‰æ›´æ™‚ã«å‘¼ã‚“ã§åˆæœŸåŒ–ã™ã‚‹
     /// </summary>
-    /// <param name="answerRotation">³‰ğ‚ÌƒIƒuƒWƒFƒNƒg‚Ìrotation</param>
+    /// <param name="answerRotation">æ­£è§£ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®rotation</param>
     public void Initialize(Quaternion answerRotation, GameObject rotationObject)
     {
         if(!_questionSceneManager)
@@ -75,24 +75,24 @@ public class RotationManager : MonoBehaviour
         {
             if(!_isCorrect)
             {
-                //‰EƒNƒŠƒbƒN‚ğ‰Ÿ‚µ‚½Û‚ÉƒJ[ƒ\ƒ‹‚ªƒCƒ[ƒW‚Ìã‚É‚È‚¯‚ê‚Î•¨‘Ì‚ğ“®‚©‚¹‚éó‘Ô‚É•ÏX
+                //å³ã‚¯ãƒªãƒƒã‚¯ã‚’æŠ¼ã—ãŸéš›ã«ã‚«ãƒ¼ã‚½ãƒ«ãŒã‚¤ãƒ¡ãƒ¼ã‚¸ã®ä¸Šã«ãªã‘ã‚Œã°ç‰©ä½“ã‚’å‹•ã‹ã›ã‚‹çŠ¶æ…‹ã«å¤‰æ›´
                 if (Input.GetMouseButtonDown(0) && CheckNoImageOnCurSor())
                 {
                     _isMovable = true;
-                }//•¨‘Ì‚ğ“®‚©‚¹‚éó‘Ô‚©‚ÂA‰EƒNƒŠƒbƒN‚ğ—£‚·
+                }//ç‰©ä½“ã‚’å‹•ã‹ã›ã‚‹çŠ¶æ…‹ã‹ã¤ã€å³ã‚¯ãƒªãƒƒã‚¯ã‚’é›¢ã™æ™‚
                 else if (_isMovable && Input.GetMouseButtonUp(0))
                 {
-                    //•¨‘Ì‚ğ“®‚©‚¹‚éó‘Ô‚ğ‰ğœ
+                    //ç‰©ä½“ã‚’å‹•ã‹ã›ã‚‹çŠ¶æ…‹ã‚’è§£é™¤
                     _isMovable = false;
-                    //³Œë”»’è
+                    //æ­£èª¤åˆ¤å®š
                     if (CheckCorrect())
                     {
                         _isCorrect = true;
-                    //‰¹‚ğ–Â‚ç‚·
+                    //éŸ³ã‚’é³´ã‚‰ã™
                     SEAudioManager.Instance.PlayClipSE(0);
-                        //³‰ğ‚Ö‚Ì‰ñ“]ŠJn
+                        //æ­£è§£ã¸ã®å›è»¢é–‹å§‹
                         await AnswerRotation();
-                        //o‘è’†‚ÌƒIƒuƒWƒFƒNƒg‚È‚ç“®ì‚ğ~‚ß‚é
+                        //å‡ºé¡Œä¸­ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãªã‚‰å‹•ä½œã‚’æ­¢ã‚ã‚‹
                         if (_questionSceneManager && _questionSceneManager.IsQuestion)
                         {
                             _initializeObject = false;
@@ -101,7 +101,7 @@ public class RotationManager : MonoBehaviour
                 }
             }
             else
-            {//ƒNƒŠƒA‚É¶ƒNƒŠƒbƒN‚ª‚³‚ê‚½‚ç‰ñ“]‚Ì‰‰o‚ğu‚ÉŠ®—¹‚³‚¹‚é
+            {//ã‚¯ãƒªã‚¢æ™‚ã«å·¦ã‚¯ãƒªãƒƒã‚¯ãŒã•ã‚ŒãŸã‚‰å›è»¢ã®æ¼”å‡ºã‚’ç¬æ™‚ã«å®Œäº†ã•ã›ã‚‹
                 if(Input.GetMouseButtonDown(1))
                 {
                     KillAnswerRotation();
@@ -113,32 +113,32 @@ public class RotationManager : MonoBehaviour
     {
         if (_isMovable && !_isCorrect)
         {
-            //ƒ}ƒEƒX‚ÌˆÚ“®—Ê‚ğŒ³‚É•¨‘Ì‚ğ‰ñ“]
+            //ãƒã‚¦ã‚¹ã®ç§»å‹•é‡ã‚’å…ƒã«ç‰©ä½“ã‚’å›è»¢
             float mouseXMove = Input.GetAxis("Mouse X");
             float mouseYMove = Input.GetAxis("Mouse Y");
             _rotationObject.transform.Rotate(mouseYMove * _basicSensivility * _sensivilityIndex / 5, -1 * mouseXMove * _basicSensivility * _sensivilityIndex / 5, 0f, Space.World);
         }
     }
     /// <summary>
-    /// ƒJ[ƒ\ƒ‹‚ªƒCƒ[ƒW‚Ìã‚ ‚é‚©”»’è
+    /// ã‚«ãƒ¼ã‚½ãƒ«ãŒã‚¤ãƒ¡ãƒ¼ã‚¸ã®ä¸Šã‚ã‚‹ã‹åˆ¤å®š
     /// </summary>
-    /// <returns>ƒCƒ[ƒW‚Ìã‚É‚È‚¯‚ê‚Îtrue, ‚»‚¤‚Å‚È‚¯‚ê‚Îfalse</returns>
+    /// <returns>ã‚¤ãƒ¡ãƒ¼ã‚¸ã®ä¸Šã«ãªã‘ã‚Œã°true, ãã†ã§ãªã‘ã‚Œã°false</returns>
     bool CheckNoImageOnCurSor()
     {
-        //RaycastAll‚Ìˆø”
+        //RaycastAllã®å¼•æ•°
         PointerEventData pointData = new PointerEventData(EventSystem.current);
-        //RaycastAll‚ÌŒ‹‰ÊŠi”[—pList
+        //RaycastAllã®çµæœæ ¼ç´ç”¨List
         List<RaycastResult> RayResult = new List<RaycastResult>();
-        //PointerEventData‚Éƒ}ƒEƒX‚ÌˆÊ’u‚ğƒZƒbƒg
+        //PointerEventDataã«ãƒã‚¦ã‚¹ã®ä½ç½®ã‚’ã‚»ãƒƒãƒˆ
         pointData.position = Input.mousePosition;
-        //RayCastiƒXƒNƒŠ[ƒ“À•Wj
+        //RayCastï¼ˆã‚¹ã‚¯ãƒªãƒ¼ãƒ³åº§æ¨™ï¼‰
         EventSystem.current.RaycastAll(pointData, RayResult);
         return RayResult.Count == 0;
     }
     /// <summary>
-    /// ³Œë”»’è@
+    /// æ­£èª¤åˆ¤å®šã€€
     /// </summary>
-    /// <returns>³‰ğ‚È‚çtrue, ‚»‚¤‚Å‚È‚¯‚ê‚Îfalse</returns>
+    /// <returns>æ­£è§£ãªã‚‰true, ãã†ã§ãªã‘ã‚Œã°false</returns>
     bool CheckCorrect()
     {
         if (Quaternion.Angle(_answerRotation, _rotationObject.transform.rotation) <= _answerVectorRange)
@@ -148,7 +148,7 @@ public class RotationManager : MonoBehaviour
         return false;
     }
     /// <summary>
-    /// İ’è‚³‚ê‚½³‰ğ‚ÌQuaternion‚É•¨‘Ì‚ğ‰ñ“]‚³‚¹‚é
+    /// è¨­å®šã•ã‚ŒãŸæ­£è§£ã®Quaternionã«ç‰©ä½“ã‚’å›è»¢ã•ã›ã‚‹
     /// </summary>
     async Task AnswerRotation()
     {
@@ -169,7 +169,7 @@ public class RotationManager : MonoBehaviour
         Debug.Log("do completed answer rotation");
     }
     /// <summary>
-    /// Šî‘b‰ñ“]—Ê‚Ì”{—¦‚ğ•ÏX‚·‚é / 0.2-2.0”{
+    /// åŸºç¤å›è»¢é‡ã®å€ç‡ã‚’å¤‰æ›´ã™ã‚‹ / 0.2-2.0å€
     /// </summary>
     /// <param name="value">1-10</param>
     public void ChangeSensivility(float value)

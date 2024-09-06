@@ -1,4 +1,4 @@
-public enum SwitchImageType
+﻿public enum SwitchImageType
 {
     Simple,
     Animator,

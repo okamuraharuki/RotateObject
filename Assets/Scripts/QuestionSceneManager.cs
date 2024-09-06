@@ -1,4 +1,4 @@
-using Cysharp.Threading.Tasks;
+ï»¿using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using System;
 using System.Collections.Generic;
@@ -9,34 +9,34 @@ using UnityEngine.UI;
 
 public class QuestionSceneManager : MonoBehaviour
 {
-    [SerializeField, Tooltip("ƒ`ƒ…[ƒgƒŠƒAƒ‹‚ÌƒeƒLƒXƒgƒf[ƒ^ƒŠƒXƒg")] private List<TutorialText> _tutorialTextList;
-    [SerializeField, Tooltip("ƒ`ƒ…[ƒgƒŠƒAƒ‹‚ÌƒIƒuƒWƒFƒNƒgƒf[ƒ^")] private QuestionData _tutorialData;
-    [SerializeField, Tooltip("–â‘è‚Ìƒf[ƒ^ƒŠƒXƒg")] private List<QuestionData> _questionDataList;
+    [SerializeField, Tooltip("ãƒãƒ¥ãƒ¼ãƒˆãƒªã‚¢ãƒ«ã®ãƒ†ã‚­ã‚¹ãƒˆãƒ‡ãƒ¼ã‚¿ãƒªã‚¹ãƒˆ")] private List<TutorialText> _tutorialTextList;
+    [SerializeField, Tooltip("ãƒãƒ¥ãƒ¼ãƒˆãƒªã‚¢ãƒ«ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãƒ‡ãƒ¼ã‚¿")] private QuestionData _tutorialData;
+    [SerializeField, Tooltip("å•é¡Œã®ãƒ‡ãƒ¼ã‚¿ãƒªã‚¹ãƒˆ")] private List<QuestionData> _questionDataList;
 
-    [SerializeField, Tooltip("Œ©o‚µ‚ÌƒeƒLƒXƒg")] Text _upperText;
-    [SerializeField, Tooltip("à–¾•¶‚ÌƒeƒLƒXƒg")] Text _explainText;
+    [SerializeField, Tooltip("è¦‹å‡ºã—ã®ãƒ†ã‚­ã‚¹ãƒˆ")] Text _upperText;
+    [SerializeField, Tooltip("èª¬æ˜æ–‡ã®ãƒ†ã‚­ã‚¹ãƒˆ")] Text _explainText;
 
-    [SerializeField, Tooltip("–Ú•Wƒ^ƒCƒ€ƒeƒLƒXƒg")] Text _baseTimeText;
+    [SerializeField, Tooltip("ç›®æ¨™ã‚¿ã‚¤ãƒ ãƒ†ã‚­ã‚¹ãƒˆ")] Text _baseTimeText;
 
-    [SerializeField, Tooltip("ƒXƒRƒA•\¦‚ÌƒeƒLƒXƒg")] Text _scoreText;
-    [SerializeField, Tooltip("‰ÁZ‚µ‚½ƒXƒRƒA•\¦‚ÌƒeƒLƒXƒg")] Text _addScoreText;
-    [SerializeField, Tooltip("‰ÁZ‚µ‚½ƒXƒRƒA•\¦‚ÌƒAƒjƒƒCƒ^[")] Animator _addScoreAnimator;
+    [SerializeField, Tooltip("ã‚¹ã‚³ã‚¢è¡¨ç¤ºã®ãƒ†ã‚­ã‚¹ãƒˆ")] Text _scoreText;
+    [SerializeField, Tooltip("åŠ ç®—ã—ãŸã‚¹ã‚³ã‚¢è¡¨ç¤ºã®ãƒ†ã‚­ã‚¹ãƒˆ")] Text _addScoreText;
+    [SerializeField, Tooltip("åŠ ç®—ã—ãŸã‚¹ã‚³ã‚¢è¡¨ç¤ºã®ã‚¢ãƒ‹ãƒ¡ã‚¤ã‚¿ãƒ¼")] Animator _addScoreAnimator;
 
-    [SerializeField, Tooltip("[¶ƒNƒŠƒbƒN‚ÅŸ‚Ö]‚ÌƒeƒLƒXƒg")] Text _nextText;
+    [SerializeField, Tooltip("[å·¦ã‚¯ãƒªãƒƒã‚¯ã§æ¬¡ã¸]ã®ãƒ†ã‚­ã‚¹ãƒˆ")] Text _nextText;
 
-    [SerializeField, Tooltip("ƒ^ƒCƒ}[ƒeƒLƒXƒg")] Text _timerText;
+    [SerializeField, Tooltip("ã‚¿ã‚¤ãƒãƒ¼ãƒ†ã‚­ã‚¹ãƒˆ")] Text _timerText;
     Stopwatch _stopwatch = new Stopwatch();
 
     GameObject _questionObject;
     GameObject _answerObject;
 
-    [SerializeField, Tooltip("‰ñ“]‚·‚é‚ÌƒIƒuƒWƒFƒNƒg¶¬êŠ")] private GameObject _questionPosObject;
-    [SerializeField, Tooltip("“š‚¦‚ÌƒIƒuƒWƒFƒNƒg¶¬êŠ")] private GameObject _answerPosObject;
+    [SerializeField, Tooltip("å›è»¢ã™ã‚‹ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆå ´æ‰€")] private GameObject _questionPosObject;
+    [SerializeField, Tooltip("ç­”ãˆã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆå ´æ‰€")] private GameObject _answerPosObject;
 
-    [SerializeField, Tooltip("ƒIƒuƒWƒFƒNƒg¶¬‚Ì‹–—eŠp“x")] private float _instantiateVectorRange = 25f;
+    [SerializeField, Tooltip("ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆæ™‚ã®è¨±å®¹è§’åº¦")] private float _instantiateVectorRange = 25f;
     Quaternion _randomQuaternion;
 
-    [SerializeField, Tooltip("³‰ğ‚Ìƒp[ƒeƒBƒNƒ‹ƒVƒXƒeƒ€ŒQ")] List<GameObject> _answerParticleObjectList;
+    [SerializeField, Tooltip("æ­£è§£æ™‚ã®ãƒ‘ãƒ¼ãƒ†ã‚£ã‚¯ãƒ«ã‚·ã‚¹ãƒ†ãƒ ç¾¤")] List<GameObject> _answerParticleObjectList;
 
     int _questionIndex = -1;
     int _tutorialIndex = 0;
@@ -53,12 +53,12 @@ public class QuestionSceneManager : MonoBehaviour
     {
         ScoreManager.Instance.ResetScore();
         _questionIndex = -1;
-        //ƒ`ƒ…[ƒgƒŠƒAƒ‹ˆÚs
+        //ãƒãƒ¥ãƒ¼ãƒˆãƒªã‚¢ãƒ«ç§»è¡Œ
         _isQuestion = false;
-        //–â‘è¶¬‚ÆRotationManager“à‚Å³Œë‚·‚éƒIƒuƒWƒFƒNƒg‚Ì‰Šú‰»‚·‚é
+        //å•é¡Œç”Ÿæˆã¨RotationManagerå†…ã§æ­£èª¤ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®åˆæœŸåŒ–ã™ã‚‹
         _questionObject = Instantiate(_tutorialData.GetQuestionObject, _questionPosObject.transform.position, _randomQuaternion);
         _answerObject = Instantiate(_tutorialData.GetAnswerObject, _answerPosObject.transform.position, _tutorialData.GetAnswerObject.transform.rotation);
-        //‰Šú”z’u‚ÌŒX‚«‚ğƒ‰ƒ“ƒ_ƒ€‚É’Š‘IA‚à‚µw’èŠp“x‚æ‚èŒX‚«‚ª­‚È‚¢ê‡‚à‚¤ˆê“x’Š‘I
+        //åˆæœŸé…ç½®ã®å‚¾ãã‚’ãƒ©ãƒ³ãƒ€ãƒ ã«æŠ½é¸ã€ã‚‚ã—æŒ‡å®šè§’åº¦ã‚ˆã‚Šå‚¾ããŒå°‘ãªã„å ´åˆã‚‚ã†ä¸€åº¦æŠ½é¸
         _randomQuaternion = UnityEngine.Random.rotation;
         while (Quaternion.Angle(_randomQuaternion, _answerObject.transform.rotation) <= _instantiateVectorRange)
         {
@@ -68,20 +68,20 @@ public class QuestionSceneManager : MonoBehaviour
 
         RotationManager.Instance.Initialize(_answerObject.transform.rotation, _questionObject);
 
-        //ƒ`ƒ…[ƒgƒŠƒAƒ‹—p‚ÌƒeƒLƒXƒg‚ğ•\¦‚·‚é
+        //ãƒãƒ¥ãƒ¼ãƒˆãƒªã‚¢ãƒ«ç”¨ã®ãƒ†ã‚­ã‚¹ãƒˆã‚’è¡¨ç¤ºã™ã‚‹
         _explainText.text = _tutorialTextList[_tutorialIndex].StringData;
         _timerText.text = "Time --:--.--";
 
-        //‰Šú‰»I—¹
+        //åˆæœŸåŒ–çµ‚äº†
         _isInitializeManager = true;
     }
     async void Update()
     {
         if (!_isInitializeManager)
             return;
-        //–â‘è’†‚Ì‚Ö‚Ì‘JˆÚ
+        //å•é¡Œä¸­ã®ã¸ã®é·ç§»
         if (_isQuestion)
-        {//Ÿ‚Ì–â‘è‚Ö‚Ì‘JˆÚ
+        {//æ¬¡ã®å•é¡Œã¸ã®é·ç§»
             if (!_isInitializeQuestion)
             {
                 if (!RotationManager.Instance.IsAnswerRotation && _questionIndex < _questionDataList.Count - 1)
@@ -94,35 +94,35 @@ public class QuestionSceneManager : MonoBehaviour
                     _isInitializeManager = false;
                     Clear();
                 }
-            }//–â‘è‚ğà‚¢‚Ä‚¢‚é“r’†
+            }//å•é¡Œã‚’èª¬ã„ã¦ã„ã‚‹é€”ä¸­
             else if (!RotationManager.Instance.IsCorrect)
             {
                 _timerText.text = $"Time {_stopwatch.Elapsed.Minutes.ToString("D2")}:" +
                     $"{_stopwatch.Elapsed.Seconds.ToString("D2")}." +
                     $"{(_stopwatch.Elapsed.Milliseconds / 10).ToString("D2")}";
-            }//³‰ğ
+            }//æ­£è§£æ™‚
             else
             {
                 if (!_isScored)
                 {
-                    //UIØ‚è‘Ö‚¦
+                    //UIåˆ‡ã‚Šæ›¿ãˆ
                     _stopwatch.Stop();
-                    _nextText.text = "¶ƒNƒŠƒbƒN‚ÅŸ‚Ö";
-                    //ƒp[ƒeƒBƒNƒ‹‚ğo‚·
+                    _nextText.text = "å·¦ã‚¯ãƒªãƒƒã‚¯ã§æ¬¡ã¸";
+                    //ãƒ‘ãƒ¼ãƒ†ã‚£ã‚¯ãƒ«ã‚’å‡ºã™
                     foreach(var particleObject in _answerParticleObjectList)
                     {
                         Instantiate(particleObject);
                     }
-                    //ƒXƒRƒAŒvZ‚Æ‰ÁZ
+                    //ã‚¹ã‚³ã‚¢è¨ˆç®—ã¨åŠ ç®—
                     int addScore = ScoreManager.Instance.CaluculateAndAddScore
                        (_questionDataList[_questionIndex].TargetTime, (float)_stopwatch.Elapsed.Seconds, _questionDataList[_questionIndex].DefaultScore, _scoreText);
                     
-                    //‰ÁZƒXƒRƒA‚Ì‰‰o
+                    //åŠ ç®—ã‚¹ã‚³ã‚¢ã®æ¼”å‡º
                     UnityEngine.Debug.Log("AddScore");
                     _addScoreText.text = $"+{addScore}";
                     
                     _addScoreAnimator.SetBool("IsActive", true);
-                    //³‰ğ‚Ìˆ—Š®—¹
+                    //æ­£è§£æ™‚ã®å‡¦ç†å®Œäº†
                     UnityEngine.Debug.Log("AddScoreComplete");
                     _isScored = true;
                 }
@@ -134,7 +134,7 @@ public class QuestionSceneManager : MonoBehaviour
                 }
             }
         }
-        //ƒ`ƒ…[ƒgƒŠƒAƒ‹‚Ö‚Ì‘JˆÚ
+        //ãƒãƒ¥ãƒ¼ãƒˆãƒªã‚¢ãƒ«ã¸ã®é·ç§»
         else
         {
             if (_tutorialIndex + 1 < _tutorialTextList.Count)
@@ -151,9 +151,9 @@ public class QuestionSceneManager : MonoBehaviour
                 {
                     _isCountDown = true;
                     _nextText.text = "";
-                    // ƒJƒEƒ“ƒgƒ_ƒEƒ“
+                    // ã‚«ã‚¦ãƒ³ãƒˆãƒ€ã‚¦ãƒ³
                     await CountDown();
-                    //o‘è’†‚ÌBGM‚É•Ï‚¦‚é
+                    //å‡ºé¡Œä¸­ã®BGMã«å¤‰ãˆã‚‹
                     BGMAudioManager.Instance.ChangeClipBGM(3);
                     UnityEngine.Debug.Log("tutorial to question");
                     _isQuestion = true;
@@ -183,23 +183,23 @@ public class QuestionSceneManager : MonoBehaviour
             UnityEngine.Debug.LogWarning("next question is null\nplease check code error");
             return;
         }
-        //‘O‚Ì–â‘è‚ğÁ‹
+        //å‰ã®å•é¡Œã‚’æ¶ˆå»
         Destroy(_questionObject);
         Destroy(_answerObject);
-        //ƒ^ƒCƒ}[ƒŠƒZƒbƒg
+        //ã‚¿ã‚¤ãƒãƒ¼ãƒªã‚»ãƒƒãƒˆ
         _stopwatch.Restart();
-        //ƒeƒLƒXƒg‚ğ•ÏX‚·‚é
+        //ãƒ†ã‚­ã‚¹ãƒˆã‚’å¤‰æ›´ã™ã‚‹
         _nextText.text = "";
         _explainText.text = _questionDataList[_questionIndex].QuestionText;
         _timerText.text = "Time 00:00.00";
-        _baseTimeText.text = $"{_questionDataList[_questionIndex].TargetTime}•b";
-        //‰Šú”z’u‚ÌŒX‚«‚ğƒ‰ƒ“ƒ_ƒ€‚É’Š‘IA‚à‚µw’èŠp“x‚æ‚èŒX‚«‚ª­‚È‚¢ê‡‚à‚¤ˆê“x’Š‘I
+        _baseTimeText.text = $"{_questionDataList[_questionIndex].TargetTime}ç§’";
+        //åˆæœŸé…ç½®ã®å‚¾ãã‚’ãƒ©ãƒ³ãƒ€ãƒ ã«æŠ½é¸ã€ã‚‚ã—æŒ‡å®šè§’åº¦ã‚ˆã‚Šå‚¾ããŒå°‘ãªã„å ´åˆã‚‚ã†ä¸€åº¦æŠ½é¸
         _randomQuaternion = UnityEngine.Random.rotation;
         while (Quaternion.Angle(_randomQuaternion, _answerObject.transform.rotation) <= _instantiateVectorRange)
         {
             _randomQuaternion = UnityEngine.Random.rotation;
         }
-        //–â‘è¶¬‚ÆRotationManager“à‚Å³Œë‚·‚éƒIƒuƒWƒFƒNƒg‚Ì‰Šú‰»‚·‚é
+        //å•é¡Œç”Ÿæˆã¨RotationManagerå†…ã§æ­£èª¤ã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®åˆæœŸåŒ–ã™ã‚‹
         _isScored = false;
         _questionObject = Instantiate(_questionDataList[_questionIndex].GetQuestionObject, _questionPosObject.transform.position, _randomQuaternion);
         _answerObject = Instantiate(_questionDataList[_questionIndex].GetAnswerObject, _answerPosObject.transform.position, _questionDataList[_questionIndex].GetAnswerObject.transform.rotation);
@@ -211,7 +211,7 @@ public class QuestionSceneManager : MonoBehaviour
         _questionObject.transform.rotation = _randomQuaternion;
     }
     async void Clear()
-    {//‰¼’u‚«
+    {//ä»®ç½®ã
         UnityEngine.Debug.Log("Clear");
         ScoreManager.Instance.ScoreRankCheck();
         UnityEngine.Debug.Log("change scene result");

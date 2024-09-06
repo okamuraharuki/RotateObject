@@ -1,4 +1,4 @@
-using DG.Tweening;
+ï»¿using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,7 +10,7 @@ public class SceneChangeManager : MonoBehaviour
 
     void Awake()
     {
-        //ƒVƒ“ƒOƒ‹ƒgƒ“
+        //ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³
         if (_instance != null)
         {
             Destroy(gameObject);
@@ -22,9 +22,9 @@ public class SceneChangeManager : MonoBehaviour
         }
     }
     /// <summary>
-    /// ƒV[ƒ“‚ğØ‚è‘Ö‚¦‚é‹@”\
+    /// ã‚·ãƒ¼ãƒ³ã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹æ©Ÿèƒ½
     /// </summary>
-    /// <param name="sceneIndex">BuildSettings‚Éİ’è‚µ‚½‡”Ô</param>
+    /// <param name="sceneIndex">BuildSettingsã«è¨­å®šã—ãŸé †ç•ª</param>
     public void SceneChangeAsync(int sceneIndex)
     {
         SceneManager.LoadSceneAsync(sceneIndex);
