@@ -9,5 +9,7 @@
   * [関連コード : セーブデータクラス](https://github.com/okamuraharuki/RotateObject/blob/main/Assets/Scripts/SaveData.cs)
   * [関連コード : セーブデータ管理コード](https://github.com/okamuraharuki/RotateObject/blob/main/Assets/Scripts/SaveDataManager.cs)　　
 ## 制作時に考えていたこと
+* タイトルで遊べるようにする
 * マウス操作のみでプレイ可能
 * シンプルな構成でゲームをやったことがない人にも伝わりやすく作る
+* 画面の遷移を滑らかにする
